@@ -16,8 +16,19 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
+  font-weight: 400;
   font-family: 'Commissioner', sans-serif;
   min-height: 100vh;
+  background-color: hsl(0, 10%, 95%);
+}
+
+button {
+  border: none;
+  offset: none;
+}
+
+button:hover {
+  cursor: pointer;
 }
 `;
 
