@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [My solution](https://www.frontendmentor.io/solutions/react-context-styled-components-crowdfunding-product-page-solution-ZGttveigo)
+- Live Site URL: [Live Site](https://duncan91-ops.github.io/crowdfunding-product-page/)
 
 ## My process
 
