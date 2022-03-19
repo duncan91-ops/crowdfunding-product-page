@@ -39,17 +39,31 @@ const Wrapper = styled.div`
     background-color: ${(props) => props.theme.colors.secondaryGray};
   }
 
-  .gauge {
+  .gauges {
     position: relative;
     margin-top: 30px;
     margin-bottom: 10px;
-    height: 10px;
     width: 100%;
+  }
+
+  .gauge {
+    height: 10px;
     border-radius: 100px;
+  }
+
+  .gauge--main {
     background-color: ${(props) => props.theme.colors.secondaryGray};
   }
 
-  .gauge::after {
+  .gauge--sub {
+    background-color: ${(props) => props.theme.colors.primaryCyan};
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  /* .gauge::after {
     content: "";
     width: 80%;
     height: 10px;
@@ -58,9 +72,13 @@ const Wrapper = styled.div`
     top: 0;
     background-color: ${(props) => props.theme.colors.primaryCyan};
     border-radius: 100px;
-  }
+  } */
 
   @media screen and (min-width: 1200px) {
+    margin-bottom: 25px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+
     .stats {
       display: flex;
     }

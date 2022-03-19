@@ -2,7 +2,7 @@ import Wrapper from "../assets/wrappers/About";
 import Pledge from "./Pledge";
 import { useGlobalContext } from "../context";
 
-const About = () => {
+const About = ({ onSelect, selected, toggleSelection }) => {
   const { appState } = useGlobalContext();
   return (
     <Wrapper>
@@ -21,8 +21,16 @@ const About = () => {
           sticks to be stored under the stand.
         </p>
         <div className="pledges">
-          {appState.products.map((product) => {
-            return <Pledge key={product.name} {...product} />;
+          {appState.rewards.map((reward) => {
+            return (
+              <Pledge
+                key={reward.name}
+                {...reward}
+                onSelect={onSelect}
+                selected={selected}
+                toggleSelection={toggleSelection}
+              />
+            );
           })}
         </div>
       </div>

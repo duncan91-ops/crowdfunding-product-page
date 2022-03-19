@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   margin-top: 1.5rem;
   background-color: #fff;
   border-radius: 10px;
-  z-index: 2;
+  z-index: 4;
 
   &.open {
     display: block;
@@ -29,6 +29,12 @@ const Wrapper = styled.div`
     font-size: 2rem;
     color: ${(props) => props.theme.colors.primaryBlack};
     padding: 0 40px;
+    transition: all 0.3s ease-in;
+  }
+
+  .menu-item:hover {
+    cursor: pointer;
+    color: ${(props) => props.theme.colors.secondaryCyan};
   }
 
   .divider {

@@ -3,25 +3,31 @@ import { useReducer, createContext, useContext } from "react";
 const initialState = {
   amountBacked: 89914,
   numberBackers: 5007,
-  products: [
+  target: 100000,
+  rewards: [
     {
-      name: "Bamboo Stand",
-      details: "Pledge $25 or more",
-      reward:
+      reward: "Pledge with no reward",
+      details:
+        "Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.",
+    },
+    {
+      reward: "Bamboo Stand",
+      pledge: 25,
+      details:
         "You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.",
       stock: 101,
     },
     {
-      name: "Black Edition Stand",
-      details: "Pledge $75 or more",
-      reward:
+      reward: "Black Edition Stand",
+      pledge: 75,
+      details:
         "You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
       stock: 64,
     },
     {
-      name: "Mahogany Special Edition",
-      details: "Pledge $200 or more",
-      reward:
+      reward: "Mahogany Special Edition",
+      pledge: 200,
+      details:
         "You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
       stock: 0,
     },
@@ -29,18 +35,20 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
-  if (action.type === "NUMBER_BACKERS_INCREASE") {
-    return { ...state, numberBackers: (state.numberBackers += action.payload) };
-  } else if (action.type === "AMOUNT_BACKED_INCREASE") {
-    return { ...state, amountBacked: (state.amountBacked += action.payload) };
-  } else if (action.type === "STOCK_DECREASE") {
-    const products = state.products.map(({ name, stock }) => {
-      if (name === action.payload.name) {
+  if (action.type === "AMOUNT_BACKED_INCREASE") {
+    const rewards = state.rewards.map((product) => {
+      let { reward, stock } = product;
+      if (reward === action.payload.reward) {
         stock -= 1;
       }
-      return { name, stock };
+      return { ...product, reward, stock };
     });
-    return { ...state, products };
+    return {
+      ...state,
+      amountBacked: state.amountBacked + action.payload.amount,
+      numberBackers: state.numberBackers + 1,
+      rewards,
+    };
   } else {
     return state;
   }

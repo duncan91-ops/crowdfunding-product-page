@@ -39,16 +39,53 @@ const Wrapper = styled.header`
 
   .btn {
     border-radius: 100px;
-    padding: 0 70px;
+    padding: 0 60px;
   }
 
   .primary-btn {
     background-color: ${(props) => props.theme.colors.primaryCyan};
     color: #fff;
+    font-weight: 700;
+  }
+
+  .primary-btn:hover {
+    background-color: ${(props) => props.theme.colors.secondaryCyan};
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .primary-btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
   }
 
   .secondary-btn {
     display: none;
+    color: ${(props) => props.theme.colors.primaryGray};
+  }
+
+  .bookmark {
+    border-radius: 100px;
+  }
+
+  .bookmark-img circle {
+    transition: all 0.3s ease-in;
+  }
+
+  .bookmark:hover {
+    cursor: pointer;
+  }
+
+  .bookmark:hover .bookmark-img circle {
+    fill: ${(props) => props.theme.colors.primaryGray};
+  }
+
+  .bookmarked .bookmark-img circle {
+    fill: ${(props) => props.theme.colors.secondaryCyan};
+  }
+
+  .bookmarked .bookmark-img path {
+    fill: white;
   }
 
   .bookmark-img {
@@ -63,6 +100,7 @@ const Wrapper = styled.header`
   @media screen and (min-width: 1200px) {
     margin-top: -90px;
     padding-bottom: 40px;
+    margin-bottom: 25px;
 
     .title {
       font-size: 2.8rem;
@@ -84,6 +122,11 @@ const Wrapper = styled.header`
       padding-left: 60px;
       padding-right: 40px;
       z-index: 1;
+      font-weight: 700;
+    }
+
+    .bookmarked .secondary-btn {
+      color: ${(props) => props.theme.colors.secondaryCyan};
     }
   }
 `;

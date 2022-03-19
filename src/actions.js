@@ -4,17 +4,3 @@ export const amountBackedIncrease = (value) => {
     payload: value,
   };
 };
-
-export const numberBackersIncrease = (value) => {
-  return {
-    type: "NUMBER_BACKERS_INCREASE",
-    payload: value,
-  };
-};
-
-export const stockDecrease = (name) => {
-  return {
-    type: "STOCK_DECREASE",
-    payload: name,
-  };
-};

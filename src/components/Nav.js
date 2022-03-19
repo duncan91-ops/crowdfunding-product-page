@@ -12,7 +12,7 @@ const Nav = ({ toggleMenu, show }) => {
       <button onClick={toggleMenu} className="menu-btn" type="button">
         <img
           src={show ? closeMenu : hamburger}
-          className="toggleMenu"
+          className="toggle-menu"
           alt="open menu"
         />
       </button>

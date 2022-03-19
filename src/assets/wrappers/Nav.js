@@ -25,7 +25,7 @@ const Wrapper = styled.nav`
     }
 
     .menu {
-      width: 30%;
+      width: 250px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -34,6 +34,12 @@ const Wrapper = styled.nav`
     .menu-item {
       color: #fff;
       padding: 0;
+      transition: all 0.3s ease-in;
+    }
+
+    .menu-item:hover {
+      cursor: pointer;
+      color: ${(props) => props.theme.colors.primaryCyan};
     }
   }
 `;
